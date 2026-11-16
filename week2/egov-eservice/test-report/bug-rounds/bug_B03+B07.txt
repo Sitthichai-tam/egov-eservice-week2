@@ -1,0 +1,209 @@
+npm notice run egov-eservice@1.0.0 npx
+npm notice run 'playwright' test --reporter=list
+
+Running 51 tests using 1 worker
+
+  ✓   1 e2e/part1.spec.js:259:1 › TC-AUTH-01 เลขบัตร 13 หลัก + checksum (1.5s)
+  ✓   2 e2e/part1.spec.js:293:1 › TC-AUTH-02 OTP ผิด 3 ครั้งล็อก 15 นาที (840ms)
+  ✓   3 e2e/part1.spec.js:360:1 › TC-AUTH-03 ลงทะเบียนครั้งแรก (2.0s)
+  ✓   4 e2e/part1.spec.js:417:1 › TC-AUTH-04 เจ้าหน้าที่ SSO จำลองและหน้าตั้งต้นตามบทบาท (5.3s)
+  ✓   5 e2e/part1.spec.js:463:1 › TC-FEE-01 ค่าธรรมเนียม SV-01/SV-02/SV-03 (1.2s)
+  ✓   6 e2e/part1.spec.js:539:1 › TC-SUBMIT-01 ยื่นคำขอ SV-01 ครบวงจร (1.2s)
+  ✓   7 e2e/part1.spec.js:601:1 › TC-SUBMIT-02 เอกสารบังคับครบก่อนชำระ (1.1s)
+  ✓   8 e2e/part1.spec.js:663:1 › TC-SUBMIT-03 ร่าง การลบร่าง และการยกเลิก (3.2s)
+  ✓   9 e2e/part1.spec.js:775:1 › TC-UPLOAD-01 ขนาดและจำนวนไฟล์ (2.7s)
+  ✓  10 e2e/part1.spec.js:843:1 › TC-UPLOAD-02 ชนิดไฟล์จากเนื้อไฟล์ (1.7s)
+  ✓  11 e2e/part1.spec.js:897:1 › TC-PAY-01 อายุ QR 15:00 (802ms)
+  ✓  12 e2e/part1.spec.js:948:1 › TC-PAY-02 ยอดเงินและ callback ซ้ำ (278ms)
+  ✓  13 e2e/part1.spec.js:991:1 › TC-PAY-03 ชำระพร้อมกัน เลขไม่ซ้ำ (467ms)
+  ✓  14 e2e/part1.spec.js:1027:1 › TC-PAY-04 เลขคำขอข้ามปี 2569 → 2570 (477ms)
+  ✓  15 e2e/part1.spec.js:1069:1 › TC-QUEUE-01 ลำดับคิวและขอบเขตแผนก (1.0s)
+  ✓  16 e2e/part1.spec.js:1124:1 › TC-QUEUE-02 รับเรื่องซ้อน (พร้อมกันและต่อกัน) (1.5s)
+  ✓  17 e2e/part1.spec.js:1200:1 › TC-QUEUE-03 งานในมือสูงสุด 10 (1.7s)
+  ✘  18 e2e/part1.spec.js:1268:1 › TC-SLA-01 กำหนดเสร็จตามตารางวันที่ (831ms)
+  ✘  19 e2e/part1.spec.js:1296:1 › TC-SLA-02 หยุดนับ SLA ระหว่างรอแก้ไข (5.7s)
+  ✘  20 e2e/part1.spec.js:1384:1 › TC-SLA-03 ระดับเตือน ปกติ/ใกล้/เกิน (6.1s)
+  ✓  21 e2e/part2.spec.js:140:1 › TC-NOTI-01 ผู้รับแจ้งเตือนตามระดับ (1.1s)
+  ✘  22 e2e/part2.spec.js:142:1 › TC-NOTI-02 ไม่แจ้งซ้ำ ข้ามระดับ และขั้นรออนุมัติ/รอออกเอกสาร (1.6s)
+  ✓  23 e2e/part2.spec.js:202:1 › TC-WORKFLOW-01 SV-01 อนุมัติและออกเอกสาร (1.0s)
+  ✓  24 e2e/part2.spec.js:222:1 › TC-WORKFLOW-02 SV-02 ผ่านหัวหน้า (1.6s)
+  ✓  25 e2e/part2.spec.js:248:1 › TC-WORKFLOW-03 SV-03 สามขั้นตอน (1.5s)
+  ✓  26 e2e/part2.spec.js:288:1 › TC-WORKFLOW-04 ตีกลับสูงสุด 2 ครั้งและผลหลังครบ (1.8s)
+  ✓  27 e2e/part2.spec.js:308:1 › TC-WORKFLOW-05 เหตุผลอย่างน้อย 10 ตัวอักษร (2.7s)
+  ✓  28 e2e/part2.spec.js:332:1 › TC-WORKFLOW-06 เวลาแก้ไข 168 ชั่วโมง (1.9s)
+  ✓  29 e2e/part2.spec.js:367:1 › TC-DOC-01 ออกเอกสารและข้อมูลใน PDF (819ms)
+  ✓  30 e2e/part2.spec.js:384:1 › TC-DOC-02 ตรวจเอกสารสาธารณะและปิดบังข้อมูล (356ms)
+  ✓  31 e2e/part2.spec.js:396:1 › TC-DOC-03 หมดอายุ 90 วัน รายปี ปีอธิกสุรทิน และลายเซ็น (2.4s)
+  ✓  32 e2e/part2.spec.js:417:1 › TC-PDPA-01 ปิดบังเลขบัตรบนจอ (1.2s)
+  ✓  33 e2e/part2.spec.js:445:1 › TC-PDPA-02 API เจ้าหน้าที่ไม่มีเลขบัตรเต็มหรือ key idNo (894ms)
+  ✓  34 e2e/part2.spec.js:470:1 › TC-PDPA-03 แสดงเลขเต็มต้องมีเหตุผลและ Audit (1.5s)
+  ✓  35 e2e/part2.spec.js:492:1 › TC-DASH-01 Dashboard ตัวเลขเริ่มต้นและบริการ (709ms)
+  ✓  36 e2e/part2.spec.js:508:1 › TC-DASH-02 Dashboard ย้อนหลังและรายปี (834ms)
+  ✓  37 e2e/part2.spec.js:544:1 › TC-DASH-03 ส่งออก Excel/PDF เท่าหน้าจอและไม่มีข้อมูลส่วนบุคคล (1.3s)
+  ✓  38 e2e/part2.spec.js:559:1 › TC-DASH-04 ทันกำหนดก่อนขอบ ที่ขอบ และเกินหนึ่งวินาที (1.1s)
+  ✓  39 e2e/part2.spec.js:591:1 › TC-AUDIT-01 เหตุการณ์ ฟิลด์ การเรียง กรอง และ CSV (2.8s)
+  ✓  40 e2e/part2.spec.js:639:1 › TC-AUDIT-02 Audit แก้หรือลบไม่ได้ (769ms)
+  ✓  41 e2e/part2.spec.js:655:1 › TC-AUDIT-03 กรองวันที่ตามเวลาไทยและรวมขอบวัน (1.9s)
+  ✓  42 e2e/part2.spec.js:677:1 › TC-RBAC-01 ประชาชนเปิดคำขอและเอกสารของคนอื่นไม่ได้ (345ms)
+  ✘  43 e2e/part2.spec.js:691:1 › TC-RBAC-02 เจ้าหน้าที่อนุมัติหรือไม่อนุมัติ SV-02 ไม่ได้ (220ms)
+  ✓  44 e2e/part2.spec.js:704:1 › TC-RBAC-03 ตารางสิทธิ์หน้า API เมนู และขอบเขตแผนก (5.4s)
+  ✘  45 e2e/part2.spec.js:751:1 › TC-RBAC-04 ผู้ดูแลแก้บริการ วันหยุด บทบาท และค่าที่ล็อกไว้ (1.0s)
+  ✓  46 e2e/part2.spec.js:783:1 › TC-RBAC-05 สิทธิ์รายการและดาวน์โหลดไฟล์แนบทุกบทบาท (1.7s)
+  ✓  47 e2e/part2.spec.js:826:1 › TC-RBAC-06 ช่วงค่าบริการ วันหยุดซ้ำ และห้ามเปลี่ยนบทบาทตนเอง (1.5s)
+  ✓  48 e2e/part2.spec.js:875:1 › TC-NFR-01 Responsive 375 768 1280 และงานหลักบนมือถือ (3.1s)
+  ✓  49 e2e/part2.spec.js:920:1 › TC-NFR-02 axe คีย์บอร์ด label และข้อความสถานะใน forced colors (10.0s)
+  ✓  50 e2e/part2.spec.js:954:1 › TC-NFR-03 Health เวลาโหลด reset ซ้ำ และนาฬิกา (1.5s)
+  ✓  51 e2e/part2.spec.js:979:1 › TC-NFR-04 ไม่มีข้อมูลส่วนบุคคลเป็นข้อความในฐานข้อมูลและถอดรหัสได้ (260ms)
+
+
+  1) e2e/part1.spec.js:1268:1 › TC-SLA-01 กำหนดเสร็จตามตารางวันที่ ─────────────────────────────────
+
+    Error: แถว c dueAt
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "2026-12-08T16:30:00+07:00"
+    Received: "2026-12-07T16:30:00+07:00"
+
+      1284 |     expect(n.caseNo, `แถว ${id}`).toBe('EG-2569-000031');
+      1285 |     const c = await getCase(b.api, n.caseNo);
+    > 1286 |     expect(c.dueAt, `แถว ${id} dueAt`).toBe(due);
+           |                                        ^
+      1287 |     await b.page.goto(`/citizen/cases/${n.caseNo}`);
+      1288 |     await expect(b.page.getByTestId('sla-due'), `แถว ${id}`).toHaveAttribute('data-iso', due);
+      1289 |     await expect(b.page.getByTestId('sla-due'), `แถว ${id}`).toHaveText(thDate(due));
+        at /workspace/plans/egov-eservice/app/e2e/part1.spec.js:1286:40
+
+    Error Context: test-results/part1-TC-SLA-01-กำหนดเสร็จตามตารางวันที่/error-context.md
+
+  2) e2e/part1.spec.js:1296:1 › TC-SLA-02 หยุดนับ SLA ระหว่างรอแก้ไข ───────────────────────────────
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  getByTestId('sla-due')
+    Expected: "2026-12-08T16:30:00+07:00"
+    Received: "2026-12-07T16:30:00+07:00"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveAttribute" getByTestId('sla-due') with timeout 5000ms
+      - waiting for getByTestId('sla-due')
+        14 × locator resolved to <time data-testid="sla-due" data-iso="2026-12-07T16:30:00+07:00">7 ธ.ค. 2569 16:30</time>
+           - unexpected value "2026-12-07T16:30:00+07:00"
+
+
+      1317 |   await cit.page.getByTestId('submit-fix-btn').click();
+      1318 |   await expect(cit.page.getByTestId('case-status')).toHaveText('กำลังตรวจสอบ');
+    > 1319 |   await expect(cit.page.getByTestId('sla-due')).toHaveAttribute('data-iso', '2026-12-08T16:30:00+07:00');
+           |                                                 ^
+      1320 |   await expect(cit.page.getByTestId('sla-due')).toHaveText('8 ธ.ค. 2569 16:30');
+      1321 |   await expect(cit.page.getByTestId('sla-level')).toHaveText('ปกติ');
+      1322 |   expect((await getCase(cit.api, n.caseNo)).dueAt).toBe('2026-12-08T16:30:00+07:00');
+        at /workspace/plans/egov-eservice/app/e2e/part1.spec.js:1319:49
+
+    Error Context: test-results/part1-TC-SLA-02-หยุดนับ-SLA-ระหว่างรอแก้ไข/error-context.md
+
+  3) e2e/part1.spec.js:1384:1 › TC-SLA-03 ระดับเตือน ปกติ/ใกล้/เกิน ────────────────────────────────
+
+    Error: B 2026-12-04T09:00:00+07:00
+
+    expect(locator).toHaveText(expected) failed
+
+    Locator:  getByTestId('sla-level')
+    Expected: "ใกล้ครบกำหนด"
+    Received: "ปกติ"
+    Timeout:  5000ms
+
+    Call log:
+      - B 2026-12-04T09:00:00+07:00 getByTestId('sla-level') with timeout 5000ms
+      - waiting for getByTestId('sla-level')
+        14 × locator resolved to <p data-level="normal" data-testid="sla-level">ปกติ</p>
+           - unexpected value "ปกติ"
+
+
+      1387 |     await LOGIN_C(idNo, b.api);
+      1388 |     await b.page.goto(`/citizen/cases/${caseNo}`);
+    > 1389 |     await expect(b.page.getByTestId('sla-level'), label).toHaveText(TXT[level]);
+           |                                                          ^
+      1390 |     await expect(b.page.getByTestId('sla-level'), label).toHaveAttribute('data-level', level);
+      1391 |     expect((await getCase(b.api, caseNo)).slaLevel, label).toBe(level);
+      1392 |   };
+        at checkCase (/workspace/plans/egov-eservice/app/e2e/part1.spec.js:1389:58)
+        at /workspace/plans/egov-eservice/app/e2e/part1.spec.js:1424:5
+
+    Error Context: test-results/part1-TC-SLA-03-ระดับเตือน-ปกติ-ใกล้-เกิน/error-context.md
+
+  4) e2e/part2.spec.js:142:1 › TC-NOTI-02 ไม่แจ้งซ้ำ ข้ามระดับ และขั้นรออนุมัติ/รอออกเอกสาร ────────
+
+    Error: expect(received).toHaveLength(expected)
+
+    Expected length: 10
+    Received length: 9
+    Received array:  [{"caseNo": "EG-2569-000030", "createdAt": "2026-12-05T10:00:00+07:00", "id": 30, "level": "overdue", "text": "คำขอ EG-2569-000030 เกินกำหนด"}, {"caseNo": "EG-2569-000029", "createdAt": "2026-12-05T10:00:00+07:00", "id": 27, "level": "overdue", "text": "คำขอ EG-2569-000029 เกินกำหนด"}, {"caseNo": "EG-2569-000028", "createdAt": "2026-12-05T10:00:00+07:00", "id": 24, "level": "overdue", "text": "คำขอ EG-2569-000028 เกินกำหนด"}, {"caseNo": "EG-2569-000027", "createdAt": "2026-12-05T10:00:00+07:00", "id": 21, "level": "overdue", "text": "คำขอ EG-2569-000027 เกินกำหนด"}, {"caseNo": "EG-2569-000026", "createdAt": "2026-12-05T10:00:00+07:00", "id": 19, "level": "overdue", "text": "คำขอ EG-2569-000026 เกินกำหนด"}, {"caseNo": "EG-2569-000025", "createdAt": "2026-12-05T10:00:00+07:00", "id": 17, "level": "overdue", "text": "คำขอ EG-2569-000025 เกินกำหนด"}, {"caseNo": "EG-2569-000024", "createdAt": "2026-12-05T10:00:00+07:00", "id": 15, "level": "overdue", "text": "คำขอ EG-2569-000024 เกินกำหนด"}, {"caseNo": "EG-2569-000015", "createdAt": "2026-12-05T10:00:00+07:00", "id": 6, "level": "overdue", "text": "คำขอ EG-2569-000015 เกินกำหนด"}, {"caseNo": "EG-2569-000013", "createdAt": "2026-12-05T10:00:00+07:00", "id": 3, "level": "overdue", "text": "คำขอ EG-2569-000013 เกินกำหนด"}]
+
+      106 | async function notifications(actor, expectedPairs, count = expectedPairs.length) {
+      107 |   const body = await json(await actor.api.get('/api/notifications'));
+    > 108 |   expect(body.items).toHaveLength(count);
+          |                      ^
+      109 |   const pairs = body.items.map(item => `${item.caseNo}:${item.level}`);
+      110 |   expect(new Set(pairs).size).toBe(pairs.length);
+      111 |   for (const pair of expectedPairs) expect(pairs).toContain(pair);
+        at notifications (/workspace/plans/egov-eservice/app/e2e/part2.spec.js:108:22)
+        at /workspace/plans/egov-eservice/app/e2e/part2.spec.js:157:49
+
+    Error Context: test-results/part2-TC-NOTI-02-ไม่แจ้งซ้-77269-ละขั้นรออนุมัติ-รอออกเอกสาร/error-context.md
+
+  5) e2e/part2.spec.js:691:1 › TC-RBAC-02 เจ้าหน้าที่อนุมัติหรือไม่อนุมัติ SV-02 ไม่ได้ ────────────
+
+    Error: http://localhost:3000/api/cases/EG-2569-000014/approve: {"status":"APPROVED"}
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 403
+    Received: 200
+
+      29 |
+      30 | async function json(response, status = 200, subset) {
+    > 31 |   expect(response.status(), `${response.url()}: ${await response.text()}`).toBe(status);
+         |                                                                            ^
+      32 |   expect(response.headers()['content-type']).toContain('application/json');
+      33 |   const body = await response.json();
+      34 |   if (subset) expect(body).toMatchObject(subset);
+        at json (/workspace/plans/egov-eservice/app/e2e/part2.spec.js:31:76)
+        at error (/workspace/plans/egov-eservice/app/e2e/part2.spec.js:38:16)
+        at /workspace/plans/egov-eservice/app/e2e/part2.spec.js:694:5
+
+    Error Context: test-results/part2-TC-RBAC-02-เจ้าหน้าท-9dd34-หรือไม่อนุมัติ-SV-02-ไม่ได้/error-context.md
+
+  6) e2e/part2.spec.js:751:1 › TC-RBAC-04 ผู้ดูแลแก้บริการ วันหยุด บทบาท และค่าที่ล็อกไว้ ──────────
+
+    Error: expect(received).toMatchObject(expected)
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+    -   "dueAt": "2026-12-08T16:30:00+07:00",
+    +   "dueAt": "2026-12-04T16:30:00+07:00",
+      }
+
+      32 |   expect(response.headers()['content-type']).toContain('application/json');
+      33 |   const body = await response.json();
+    > 34 |   if (subset) expect(body).toMatchObject(subset);
+         |                            ^
+      35 |   return body;
+      36 | }
+      37 | async function error(response, status, code, message) {
+        at json (/workspace/plans/egov-eservice/app/e2e/part2.spec.js:34:28)
+        at /workspace/plans/egov-eservice/app/e2e/part2.spec.js:770:87
+
+    Error Context: test-results/part2-TC-RBAC-04-ผู้ดูแลแก-d9b3a-หยุด-บทบาท-และค่าที่ล็อกไว้/error-context.md
+
+  6 failed
+    e2e/part1.spec.js:1268:1 › TC-SLA-01 กำหนดเสร็จตามตารางวันที่ ──────────────────────────────────
+    e2e/part1.spec.js:1296:1 › TC-SLA-02 หยุดนับ SLA ระหว่างรอแก้ไข ────────────────────────────────
+    e2e/part1.spec.js:1384:1 › TC-SLA-03 ระดับเตือน ปกติ/ใกล้/เกิน ─────────────────────────────────
+    e2e/part2.spec.js:142:1 › TC-NOTI-02 ไม่แจ้งซ้ำ ข้ามระดับ และขั้นรออนุมัติ/รอออกเอกสาร ─────────
+    e2e/part2.spec.js:691:1 › TC-RBAC-02 เจ้าหน้าที่อนุมัติหรือไม่อนุมัติ SV-02 ไม่ได้ ─────────────
+    e2e/part2.spec.js:751:1 › TC-RBAC-04 ผู้ดูแลแก้บริการ วันหยุด บทบาท และค่าที่ล็อกไว้ ───────────
+  45 passed (1.6m)
