@@ -1,0 +1,44 @@
+P1 count: 43
+TC-AUTH-01 |   1 passed (2.2s)  | videos=1 | gif=124KB
+TC-AUTH-02 |   1 passed (2.0s)  | videos=1 | gif=104KB
+TC-AUTH-03 |   1 passed (2.7s)  | videos=1 | gif=272KB
+TC-FEE-01 |   1 passed (2.2s)  | videos=1 | gif=140KB
+TC-SUBMIT-01 |   1 passed (2.0s)  | videos=2 | gif=444KB
+TC-SUBMIT-02 |   1 passed (1.9s)  | videos=1 | gif=228KB
+TC-UPLOAD-01 |   1 passed (3.3s)  | videos=1 | gif=320KB
+TC-UPLOAD-02 |   1 passed (2.4s)  | videos=1 | gif=240KB
+TC-PAY-01 |   1 passed (1.6s)  | videos=1 | gif=92KB
+TC-PAY-02 |   1 passed (896ms)  | videos=0 (ไม่มีหน้าจอให้อัด)
+TC-PAY-03 |   1 passed (1.0s)  | videos=0 (ไม่มีหน้าจอให้อัด)
+TC-QUEUE-01 |   1 passed (2.0s)  | videos=4 | gif=1036KB
+TC-QUEUE-02 |   1 passed (2.5s)  | videos=4 | gif=1220KB
+TC-QUEUE-03 |   1 passed (2.9s)  | videos=3 | gif=1264KB
+TC-SLA-01 |   1 passed (4.4s)  | videos=9 | gif=1124KB
+TC-SLA-02 |   1 passed (3.4s)  | videos=6 | gif=676KB
+TC-SLA-03 |   1 passed (2.9s)  | videos=5 | gif=676KB
+TC-NOTI-01 |   1 passed (1.8s)  | videos=4 | gif=276KB
+TC-NOTI-02 |   1 passed (4.5s)  | videos=11 | gif=1664KB
+TC-WORKFLOW-01 |   1 passed (1.8s)  | videos=4 | gif=208KB
+TC-WORKFLOW-02 |   1 passed (3.4s)  | videos=6 | gif=4KB
+TC-WORKFLOW-03 |   1 passed (2.5s)  | videos=5 | gif=840KB
+TC-WORKFLOW-04 |   1 passed (2.9s)  | videos=7 | gif=544KB
+TC-WORKFLOW-05 |   1 passed (2.7s)  | videos=6 | gif=4KB
+TC-WORKFLOW-06 |   1 passed (1.8s)  | videos=4 | gif=396KB
+TC-DOC-01 |   1 passed (1.6s)  | videos=4 | gif=4KB
+TC-DOC-02 |   1 passed (1.0s)  | videos=1 | gif=24KB
+TC-DOC-03 |   1 passed (3.2s)  | videos=10 | gif=112KB
+TC-PDPA-01 |   1 passed (1.6s)  | videos=4 | gif=448KB
+TC-PDPA-02 |   1 passed (1.4s)  | videos=2 | gif=4KB
+TC-PDPA-03 |   1 passed (1.8s)  | videos=4 | gif=328KB
+TC-DASH-01 |   1 passed (1.3s)  | videos=1 | gif=144KB
+TC-DASH-02 |   1 passed (1.7s)  | videos=1 | gif=168KB
+TC-DASH-04 |   1 passed (1.8s)  | videos=3 | gif=320KB
+TC-AUDIT-01 |   1 passed (3.3s)  | videos=6 | gif=368KB
+TC-AUDIT-02 |   1 passed (1.4s)  | videos=2 | gif=4KB
+TC-AUDIT-03 |   1 passed (3.0s)  | videos=5 | gif=304KB
+TC-RBAC-01 |   1 passed (1.2s)  | videos=2 | gif=4KB
+TC-RBAC-02 |   1 passed (1.6s)  | videos=3 | gif=168KB
+TC-RBAC-03 |   1 passed (6.3s)  | videos=10 | gif=4KB
+TC-RBAC-05 |   1 passed (2.7s)  | videos=10 | gif=200KB
+TC-NFR-01 |   1 passed (4.6s)  | videos=13 | gif=2500KB
+TC-NFR-02 |   1 passed (12.9s)  | videos=23 | gif=1912KB

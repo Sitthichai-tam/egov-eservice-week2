@@ -1,0 +1,313 @@
+/* B11: shared responsive and accessible presentation.
+ * Labels, status text and CONTRACT data-testid attributes belong to page markup.
+ * Never replace their text with CSS content or suppress native keyboard access.
+ */
+:root {
+  color-scheme: light;
+  font-family: "Noto Sans Thai", "Leelawadee UI", Tahoma, sans-serif;
+  font-size: 100%;
+  line-height: 1.65;
+  color: #172b42;
+  background: #f3f6fa;
+  --ink: #172b42;
+  --muted: #42556b;
+  --primary: #124b79;
+  --border: #718096;
+  --surface: #fff;
+  --focus: #111827;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-padding-block: 1.5rem; }
+body { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+[hidden] { display: none !important; }
+main, section, article, aside, form, fieldset, header, nav, footer,
+.card, .grid > *, .row > *, .app-user, .app-nav { min-width: 0; }
+main {
+  width: min(100%, 78rem);
+  margin-inline: auto;
+  padding: clamp(1rem, 3vw, 2.5rem);
+  padding-bottom: 4rem;
+}
+h1, h2, h3 { line-height: 1.4; color: #123654; margin-block: 0 1rem; }
+h1 { font-size: clamp(1.5rem, 3vw, 2rem); }
+h2 { font-size: 1.35rem; }
+h3 { font-size: 1.125rem; }
+p, ul, ol, dl { margin-block: .75rem 1rem; }
+li + li { margin-top: .35rem; }
+a { color: #124b79; text-decoration: underline; text-underline-offset: .2em; }
+a:hover { color: #082f50; text-decoration-thickness: .15em; }
+a[href] { display: inline-block; min-height: 24px; min-width: 24px; }
+img, svg, video, canvas { max-width: 100%; height: auto; }
+iframe, object, embed { max-width: 100%; }
+pre { max-width: 100%; overflow: auto; padding: 1rem; background: #edf2f7; }
+code { overflow-wrap: anywhere; }
+hr { border: 0; border-top: 1px solid var(--border); margin-block: 1.5rem; }
+
+/* Visible even on light and dark controls; no sticky chrome obscures focus. */
+:focus {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 3px #fff;
+}
+:target { scroll-margin-block: 1.5rem; }
+.skip-link {
+  position: absolute;
+  inset-block-start: .5rem;
+  inset-inline-start: 1rem;
+  z-index: 100;
+  max-width: calc(100% - 2rem);
+  padding: .75rem 1rem;
+  color: #fff;
+  background: #123654;
+  transform: translateY(-200%);
+}
+.skip-link:focus { transform: translateY(0); }
+
+.app-header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  padding: 1rem clamp(1rem, 3vw, 2.5rem);
+  background: #fff;
+  border-block-end: 3px solid #124b79;
+}
+.brand { font-size: 1.125rem; font-weight: 700; color: #123654; }
+.app-nav, .app-user, .tabs, .actions, .toolbar, .filters, .row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .75rem;
+}
+.app-nav a { display: inline-flex; align-items: center; padding: .5rem; gap: .4rem; }
+.app-user { margin-inline-start: auto; }
+[data-testid="user-role"], [data-testid="bell-count"] {
+  display: inline-block;
+  padding: .15rem .5rem;
+  background: #e8eff7;
+  color: #123654;
+  border-radius: .35rem;
+}
+.card, .panel, .service-card, .stat-card {
+  padding: clamp(1rem, 2.5vw, 1.75rem);
+  margin-block: 1rem;
+  background: var(--surface);
+  border: 1px solid #a4b1bf;
+  border-radius: .6rem;
+}
+.grid, .service-grid, .stats, .dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: 1rem;
+}
+.grid .card, .service-grid .card, .stats .card { margin: 0; }
+.tabs { margin-bottom: 1rem; padding: .25rem; }
+[role="tab"][aria-selected="false"] { background: #fff; color: #124b79; }
+[role="tab"][aria-selected="true"] { border-bottom: 4px solid #172b42; font-weight: 700; }
+
+form { max-width: 100%; }
+.field { margin-block: 0 1.25rem; }
+label, legend { font-weight: 600; }
+label { display: block; margin-block-end: .4rem; }
+fieldset { max-width: 100%; margin: 1rem 0; padding: 1rem; border: 1px solid var(--border); }
+input, select, textarea, button { font: inherit; max-width: 100%; }
+input, select, textarea {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: .6rem .75rem;
+  border: 1px solid #64748b;
+  border-radius: .3rem;
+  background: #fff;
+  color: var(--ink);
+}
+input::placeholder, textarea::placeholder { color: #526174; opacity: 1; }
+textarea { min-height: 7rem; resize: vertical; }
+input[type="checkbox"], input[type="radio"] {
+  width: 24px;
+  height: 24px;
+  min-height: 24px;
+  padding: 0;
+  margin: .4rem .5rem .4rem 0;
+  vertical-align: middle;
+  accent-color: #124b79;
+  flex-shrink: 0;
+}
+input[type="checkbox"] + label, input[type="radio"] + label {
+  display: inline;
+  font-weight: 400;
+  cursor: pointer;
+}
+label:has(input[type="checkbox"]), label:has(input[type="radio"]) {
+  display: flex;
+  align-items: flex-start;
+  gap: .5rem;
+}
+input[type="file"] { padding: .4rem; }
+input[type="file"]::file-selector-button {
+  font: inherit;
+  min-height: 36px;
+  padding: .25rem .6rem;
+  margin-inline-end: .5rem;
+  border: 1px solid #64748b;
+  border-radius: .2rem;
+  color: #123654;
+  background: #edf2f7;
+  cursor: pointer;
+}
+input[readonly] { background: #edf2f7; }
+[aria-invalid="true"] { border: 2px dashed #9b2020; }
+button, .button, .btn, a[data-testid^="start-service-"],
+a[data-testid$="-btn"], a[data-testid="approval-open"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .4rem;
+  min-width: 44px;
+  min-height: 44px;
+  padding: .6rem 1rem;
+  border: 2px solid #124b79;
+  border-radius: .35rem;
+  background: #124b79;
+  color: #fff;
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+button:hover, .button:hover, .btn:hover { background: #0a3659; color: #fff; }
+button.secondary, .btn-secondary, [data-testid="logout-btn"] {
+  background: #fff;
+  color: #124b79;
+}
+button:disabled, input:disabled, select:disabled, textarea:disabled,
+[aria-disabled="true"] {
+  color: #42556b;
+  background: #e4e9ef;
+  border-color: #718096;
+  cursor: not-allowed;
+  opacity: 1;
+}
+.help, .muted, small { color: var(--muted); }
+
+/* Keep all status words in the DOM, including under forced colors. */
+.msg, [role="alert"] {
+  padding: .8rem 1rem;
+  margin-block: 1rem;
+  border: 1px solid #718096;
+  border-inline-start-width: 5px;
+  border-radius: .3rem;
+  background: #edf2f7;
+  color: #172b42;
+}
+.msg-error, .error { background: #fff1f1; color: #8b1a1a; border-color: #9b2020; }
+.msg-success, .success { background: #edf8f1; color: #165032; border-color: #24623b; }
+.warning, .msg-warning { background: #fff7df; color: #674200; border-color: #795000; }
+.badge, [data-testid="case-status"], [data-testid="sla-level"],
+[data-testid="payment-status"] {
+  display: inline-block;
+  padding: .2rem .55rem;
+  border: 1px solid currentColor;
+  border-radius: .3rem;
+  font-weight: 600;
+}
+[data-level="near"], [data-sla-level="near"] { color: #674200; background: #fff7df; }
+[data-level="overdue"], [data-sla-level="overdue"] { color: #8b1a1a; background: #fff1f1; }
+[data-level="normal"], [data-level="closed"] { color: #165032; background: #edf8f1; }
+[data-level="paused"] { color: #35465c; background: #edf2f7; }
+[data-testid="fee-total"], [data-testid="payment-amount"] { font-size: 1.4rem; font-weight: 700; }
+[data-testid="wizard-step"] { font-weight: 700; margin-block: 1rem; }
+[data-testid="case-timeline"] { padding-inline-start: 1.5rem; }
+[data-testid="timeline-item"] { padding-block: .5rem; }
+
+/* A bare table is its own scroll container; wrappers work the same way.
+ * Do not hide page overflow: every column remains reachable on small screens.
+ */
+.table-wrap, .table-wrapper, .table-scroll, .table-responsive {
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  padding: .25rem;
+}
+table {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  margin-block: 1rem;
+  padding: .25rem;
+  background: #fff;
+}
+caption { text-align: start; font-weight: 700; padding: .5rem; }
+th, td {
+  padding: .75rem;
+  border: 1px solid #a4b1bf;
+  text-align: start;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+th { background: #e8eff7; color: #123654; font-weight: 700; }
+td a { display: inline-block; padding-block: .2rem; }
+td button { margin: .25rem; }
+tbody tr:nth-child(even) { background: #f4f7fb; }
+dt { font-weight: 700; }
+dd { margin-inline-start: 0; margin-block-end: .75rem; }
+dialog {
+  width: min(34rem, calc(100% - 2rem));
+  max-height: calc(100dvh - 2rem);
+  overflow: auto;
+  padding: 1.5rem;
+  color: var(--ink);
+  background: #fff;
+  border: 2px solid #124b79;
+  border-radius: .5rem;
+}
+dialog::backdrop { background: rgb(0 0 0 / 55%); }
+
+@media (max-width: 48rem) {
+  .app-header { align-items: flex-start; }
+  .brand, .app-nav, .app-user { flex-basis: 100%; }
+  .app-user { margin-inline-start: 0; }
+  .toolbar, .filters { align-items: stretch; }
+  .toolbar > *, .filters > * { flex: 1 1 12rem; min-width: 0; }
+}
+@media (max-width: 30rem) {
+  main { padding: 1rem; padding-bottom: 3rem; }
+  .card, .panel, .service-card { padding: 1rem; }
+  .actions > *, .tabs > * { flex: 1 1 auto; }
+  .app-user > [data-testid="user-name"] { flex-basis: 100%; }
+  th, td { padding: .6rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+@media (forced-colors: active) {
+  :focus { outline: 3px solid Highlight; box-shadow: none; }
+  button, .btn, .button, input, select, textarea,
+  .badge, [data-testid="case-status"], [data-testid="sla-level"] {
+    border: 2px solid ButtonText;
+  }
+  [role="tab"][aria-selected="true"] { border-bottom: 4px solid Highlight; }
+  a { text-decoration: underline; }
+}
+@media print {
+  body, main { background: #fff; color: #000; }
+  main { width: 100%; padding: 0; }
+  .skip-link, .app-nav, [data-testid="logout-btn"] { display: none; }
+  table { display: table; overflow: visible; }
+  .card { break-inside: avoid; }
+}
+
+/* แจ้งเตือน: เวลาแสดงด้วย CSS เพื่อให้ข้อความของ noti-item ตรง CONTRACT ทุกตัวอักษร */
+.notification-list { list-style: none; padding: 0; margin: 0; }
+.notification-list li { padding: .5rem 0; border-bottom: 1px solid #d0d5dd; }
+.notification-list li::after { content: attr(data-time); display: block; font-size: .875rem; color: #475467; }

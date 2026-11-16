@@ -1,0 +1,45 @@
+# e-Service กลางของเทศบาลนครตัวอย่าง (ระบบสมมติ) · รันคำสั่งเดียว:
+#
+#   docker compose up --build                              # เว็บถูกต้อง 100% (test hook ปิด)
+#   TEST_MODE=1 docker compose up --build                  # เปิด /api/test/* → รัน TEST-PLAN ได้
+#   TEST_MODE=1 BUG_MODE=B03,B07 docker compose up --build # เปิดบั๊กตาม BUGS.md ทีละหลายตัวได้
+#
+# เว็บอยู่ที่ http://localhost:3000 (เปลี่ยนพอร์ตด้วย APP_PORT=8080)
+# GET /api/health → 200 {"status":"ok"} · POST /api/test/reset + PUT /api/test/clock (เฉพาะ TEST_MODE=1)
+#
+# TC-NFR-04 (inspection): ฐานข้อมูลถูก bind-mount ออกมาที่ ./data/app.db บนเครื่อง host
+#   → ตั้ง DB_PATH=<โฟลเดอร์นี้>/data/app.db ให้โปรเจกต์ test อ่านไฟล์ได้ตรง ๆ
+name: egov-eservice
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: egov-eservice:latest
+    ports:
+      - "${APP_PORT:-3000}:3000"
+    environment:
+      PORT: "3000"
+      # ไม่ตั้ง = ปิด test hook (/api/test/* ตอบ 404) · ตั้ง TEST_MODE=1 = เปิด
+      TEST_MODE: "${TEST_MODE:-}"
+      # ไม่ตั้ง = เว็บถูกต้อง · ตัวอย่าง BUG_MODE=B03,B07
+      BUG_MODE: "${BUG_MODE:-}"
+      # ไฟล์ฐานข้อมูลภายในคอนเทนเนอร์ (อยู่บน bind mount ด้านล่าง) และที่เก็บไฟล์อัปโหลด
+      DB_PATH: /data/app.db
+      UPLOAD_DIR: /data/uploads
+      # เวลาในระบบคือ Asia/Bangkok (+07:00) อ่านจากนาฬิกาทดสอบใน src/clock.js
+      # (ใช้ offset คงที่ จึงไม่ต้องพึ่ง tzdata ในอิมเมจ)
+    volumes:
+      - "${DATA_DIR:-./data}:/data"
+    healthcheck:
+      test:
+        - CMD
+        - node
+        - -e
+        - "fetch('http://127.0.0.1:3000/api/health').then(r=>r.json()).then(j=>process.exit(j.status==='ok'?0:1)).catch(()=>process.exit(1))"
+      interval: 5s
+      timeout: 3s
+      retries: 12
+      start_period: 5s
+    restart: unless-stopped
